@@ -13,7 +13,7 @@
 
 
 ## Synopsis:
-## How we converted our ALBERT model trained for text classification to ONNX runtime and how it suddenly increased to 345mb from 47mb of size( .bin weights file).
+## How we converted our ALBERT model trained for text classification to ONNX runtime and how it suddenly increased to 358.3mb from 46.8mb of size( .bin weights file).
 We tried all optimizations on python before the conversion. However, the way out was to convert the .onnx converted weights to a compressed, quantized version .Details of which are laid out below:
 
 
@@ -43,7 +43,7 @@ Click [ONNX](https://github.com/arjunkumbakkara/CML_with_DVC_on_Transformer_NLP/
 
 ## The Catch: 
 The catch here could however be that a straight up conversion might spike the overall size of your model as can be seen in the images attached below (We have used ALBERT Transformer as an example)
-Post training of the model , the size obtained was 47mb , But after a straight conversion to ONNX runtime as described in the above section the size  increased 40x 
+Post training of the model , the size obtained was 46.8mb , But after a straight conversion to ONNX runtime as described in the above section the size  increased 40x 
 which is way too much for any inferencing activity. 
 Thus , we had to undertake few work arounds which are explained below for your easier transition into ONNX runtimes and its effective use.
 
@@ -58,7 +58,7 @@ Original weights size:
 ![original Weights](./documentation_elements/sizeone.png)
 
 
-However the  size upon conversion spiked to 340 mb.
+However the  size upon conversion spiked to 358.3 mb.
 
 Onnx weights size:
 ![ONNX converted Weights size](./documentation_elements/sizesecond.png)
